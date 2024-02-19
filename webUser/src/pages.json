@@ -1,0 +1,200 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"enablePullDownRefresh": false, //设置参数为true
+				"onReachBottomDistance": 20 //距离底部多远时触发 单位为px
+			}
+		},
+		{
+			"path": "pages/mine/index",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/complaint/WriteComments",
+			"style": {
+				"navigationBarTitleText": "填写评价",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/complaint/WriteTousu",
+			"style": {
+				"navigationBarTitleText": "投诉",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/complaint/WriteTousuCenter",
+			"style": {
+				"navigationBarTitleText": "我要投诉",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/mine/mineRate",
+			"style": {
+				"navigationBarTitleText": "我的评价",
+				"enablePullDownRefresh": false
+			}
+		
+		}, {
+			"path": "pages/mine/mineTousu",
+			"style": {
+				"navigationBarTitleText": "我的投诉",
+				"enablePullDownRefresh": false
+			}
+		
+		}, {
+			"path": "pages/mine/Setting",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"enablePullDownRefresh": false
+			}
+		
+		}, {
+			"path": "pages/mine/personal",
+			"style": {
+				"navigationBarTitleText": "个人资料",
+				"enablePullDownRefresh": false
+			}
+		
+		}, {
+			"path": "pages/mine/privacy",
+			"style": {
+				"navigationBarTitleText": "隐私",
+				"enablePullDownRefresh": false
+			}
+		
+		}, {
+			"path": "pages/mine/complaintDetail",
+			"style": {
+				"navigationBarTitleText": "投诉详情",
+				"enablePullDownRefresh": false
+			}
+		
+		}, {
+			"path": "pages/mine/updateCenter",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		
+		}
+	],
+	"subPackages": [{
+			"root": "pages/login",
+			"pages": [{
+				"path": "passwordLogin",
+				"style": {
+					"navigationBarTitleText": "密码登录"
+				}
+			}, {
+				"path": "AgreeContentSys",
+				"style": {
+					"navigationBarTitleText": "服务协议",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "AgreeContentUser",
+				"style": {
+					"navigationBarTitleText": "用户协议",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "register",
+				"style": {
+					"navigationBarTitleText": "注册"
+				}
+
+			}, {
+				"path": "codeLogin",
+				"style": {
+					"navigationBarTitleText": "验证码登录",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "login",
+				"style": {
+					"navigationBarTitleText": "登录",
+					"enablePullDownRefresh": false
+				}
+
+			}]
+		},
+		{
+			"root": "pages/org",
+			"pages": [{
+				"path": "orgDetail",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "orgType",
+				"style": {
+					"navigationBarTitleText": "其他信息",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "orgList",
+				"style": {
+					"navigationBarTitleText": "机构列表",
+					"enablePullDownRefresh": false, //设置参数为true
+					"onReachBottomDistance": 20 //距离底部多远时触发 单位为px
+				}
+
+			}, {
+				"path": "TousuDetail",
+				"style": {
+					"navigationBarTitleText": "投诉详情",
+					"enablePullDownRefresh": false
+				}
+
+			}]
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationStyle": "custom",
+		"navigationBarTitleText": "信易学",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#3D3D3D",
+		"selectedColor": "#3994FF",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "white",
+		"height": "118rpx",
+		"iconWidth": "44rpx",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tab/home.png",
+				"selectedIconPath": "static/tab/home_r.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/mine/index",
+				"iconPath": "static/tab/mine.png",
+				"selectedIconPath": "static/tab/mine_r.png",
+				"text": "我的"
+			}
+		]
+	}
+}

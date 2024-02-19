@@ -1,0 +1,51 @@
+.x-cell {
+    background: #fff;
+    padding: 0 30rpx;
+    height: 100rpx;
+    position: relative;
+
+    .x-cell-title {
+        color: #333;
+		font-size: 30upx;
+    }
+
+    .x-cell-value {
+        color: #bdbdbd;
+        font-size: 30rpx;
+        
+        .head-img{
+            width: 56rpx;
+            height: 56rpx;
+            border-radius: 50%;
+        }
+        
+        .tag{
+            background: #E4F3FF;
+            border-radius: 6rpx;
+            color: #3994FF;
+            font-size: 24rpx;
+            padding: 4rpx 6rpx;
+            margin-right: 20rpx;
+        }
+
+        .x-cell-icon {
+            width: 13rpx;
+            height: 20rpx;
+            margin-left: auto;
+        }
+        
+        .password-edit{
+            color: #3994FF;
+        }
+    }
+
+}
+
+.x-cell::after {
+    content: '';
+    position: absolute;
+    left: 30rpx;
+    bottom: 0;
+    border-bottom: 2rpx solid #f5f5f5;
+    width: 100%;
+}

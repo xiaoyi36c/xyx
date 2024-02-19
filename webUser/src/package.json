@@ -1,0 +1,17 @@
+{
+  "name": "webuser",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "vuex": "^4.1.0"
+  },
+  "browserslist": [
+    "Android >= 4.4",
+    "ios >= 9"
+  ],
+  "uni-app": {
+    "scripts": {}
+  }
+}
