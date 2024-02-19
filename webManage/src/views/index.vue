@@ -5,20 +5,20 @@
         <h1>信易学管理平台</h1>
       </el-col>
       <el-col :xs="24" :sm="24" :md="12" :lg="8" style="display: inline-flex;width: 100%;justify-content: center;">
-        <!--        <el-select-->
-        <!--              ref="headerSearchSelect"-->
-        <!--              v-model="keyValue"-->
-        <!--              :remote-method="querySearch"-->
-        <!--              filterable-->
-        <!--              default-first-option-->
-        <!--              remote-->
-        <!--              placeholder="请输入页面关键词，可跳转目标页面...." -->
-        <!--              class="header-search-select"-->
-        <!--              @change="change"-->
-        <!--            >-->
-        <!--          <el-option v-for="option in options" :key="option.item.path" :value="option.item" :label="option.item.title.join(' > ')" />-->
-        <!--        </el-select>-->
-        <!-- <el-button style="margin-left:15px;" type="primary" icon="el-icon-search" @click="querySearch">搜索</el-button> -->
+                <el-select
+                      ref="headerSearchSelect"
+                      v-model="keyValue"
+                      :remote-method="querySearch"
+                      filterable
+                      default-first-option
+                      remote
+                      placeholder="请输入页面关键词，可跳转目标页面...."
+                      class="header-search-select"
+                      @change="change"
+                    >
+                  <el-option v-for="option in options" :key="option.item.path" :value="option.item" :label="option.item.title.join(' > ')" />
+                </el-select>
+         <el-button style="margin-left:15px;" type="primary" icon="el-icon-search" @click="querySearch">搜索</el-button>
       </el-col>
       <el-col :sm="24" :lg="24" />
     </el-row>
@@ -33,7 +33,6 @@ export default {
   name: 'Index',
   data() {
     return {
-      logoImg,
       keyValue: '',
       options: [],
       searchPool: [],
