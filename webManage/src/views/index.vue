@@ -1,7 +1,6 @@
 <template>
   <div class="app-container home">
     <el-row :gutter="20" class="homeRow">
-      <img :src="logoImg" class="sidebar-logo">
       <el-col :sm="24" :lg="24">
         <h1>信易学管理平台</h1>
       </el-col>
@@ -27,7 +26,6 @@
 </template>
 
 <script>
-import logoImg from '@/assets/logo/logo2.png'
 import Fuse from 'fuse.js/dist/fuse.min.js'
 import path from 'path'
 import store from '@/store'
@@ -180,3 +178,4 @@ export default {
   }
 }
 </style>
+
