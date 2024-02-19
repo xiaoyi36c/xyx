@@ -149,10 +149,7 @@
 				"/": {
 					"target": "http://localhost:8698", //请求的目标地址
 					"changeOrigin": true, //是否跨域
-					"secure": false,
-					"pathRewrite": {
-						"^/dev-api": ""
-					}
+					"secure": false
 				}
 			}
 
