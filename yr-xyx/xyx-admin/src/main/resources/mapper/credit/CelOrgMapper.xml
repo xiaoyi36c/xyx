@@ -5,4 +5,11 @@
     <select id="getAllArea" parameterType="map" resultType="map">
         select id,name,pid,sname,level,mername from t_platform_region where isUsing=1
     </select>
+
+    <select id="getAreaList" parameterType="map" resultType="map">
+        select id,name,pid,sname,level,mername from t_platform_region where 1=1
+        <if test="type != null and type==1"> and level = #{type}</if>
+        <if test="type != null and type==2"> and level = #{type} and pid = #{regionId}</if>
+        <if test="type != null and type==3"> and level = #{type} and pid = #{regionId}</if>
+    </select>
 </mapper>

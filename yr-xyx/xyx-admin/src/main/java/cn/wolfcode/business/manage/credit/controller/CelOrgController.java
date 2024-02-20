@@ -24,8 +24,8 @@ public class CelOrgController {
     }
 
 
-    @PostMapping("/getAreaList")
-    @Log(title = "获取省市区树形菜单 ", businessType = BusinessType.INSERT)
+    @GetMapping("/getAreaList")
+    @Log(title = "获取省市区列表菜单", businessType = BusinessType.INSERT)
     public AjaxResult getAreaList(@RequestBody Map params) {
         return AjaxResult.success(celOrgService.getAreaList(params));
     }
