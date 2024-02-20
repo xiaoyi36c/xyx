@@ -18,40 +18,31 @@ public class CelOrgCredit extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** id */
     private Long id;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 版本号 */
     private Long version;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 创建人id */
     private Long createdBy;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 创建人名字 */
     private String createdByName;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 创建时间 */
     private Date createdTime;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 更新人id */
     private Long updatedBy;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 更新人名字 */
     private String updatedByName;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 更新时间*/
     private Date updatedTime;
 
-    /** $column.columnComment */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /**  */
     private Integer deleted;
 
     /** 机构id */
@@ -60,11 +51,9 @@ public class CelOrgCredit extends BaseEntity
 
     /** 事件时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "事件时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date eventData;
 
     /** 事件类型 */
-    @Excel(name = "事件类型")
     private String eventType;
 
     /** 事件描述 */
@@ -72,7 +61,6 @@ public class CelOrgCredit extends BaseEntity
     private String eventDescribe;
 
     /** 来源类型【预留字段，以后会有其他数据来源】 */
-    @Excel(name = "来源类型【预留字段，以后会有其他数据来源】")
     private Long sourceType;
 
     public void setId(Long id) 
