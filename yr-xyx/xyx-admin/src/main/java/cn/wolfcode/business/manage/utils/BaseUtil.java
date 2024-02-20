@@ -25,18 +25,12 @@ public class BaseUtil {
             return true;
         } else {
             if (pObj instanceof String) {
-                if (((String)pObj).trim().length() == 0) {
-                    return true;
-                }
+                return ((String) pObj).trim().isEmpty();
             } else if (pObj instanceof Collection) {
-                if (((Collection)pObj).size() == 0) {
-                    return true;
-                }
-            } else if (pObj instanceof Map && ((Map)pObj).size() == 0) {
-                return true;
+                return ((Collection<?>) pObj).isEmpty();
+            } else {
+                return pObj instanceof Map && ((Map<?, ?>) pObj).isEmpty();
             }
-
-            return false;
         }
     }
 
