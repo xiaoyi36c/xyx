@@ -26,7 +26,7 @@ public class CelOrgController {
 
     @GetMapping("/getAreaList")
     @Log(title = "获取省市区列表菜单", businessType = BusinessType.INSERT)
-    public AjaxResult getAreaList(@RequestBody Map params) {
+    public AjaxResult getAreaList(@RequestParam Map params) {
         return AjaxResult.success(celOrgService.getAreaList(params));
     }
 
