@@ -100,7 +100,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -122,7 +122,7 @@
 </template>
 
 <script>
-import { listCredit, getCredit, delCredit, addCredit, updateCredit } from "@/api/manage/credit";
+import { listCredit, getCredit, delCredit, addCredit, updateCredit } from "@/api/business/credit/credit";
 
 export default {
   name: "Credit",
