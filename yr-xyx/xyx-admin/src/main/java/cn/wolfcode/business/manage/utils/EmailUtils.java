@@ -1,3 +1,4 @@
+/*
 package cn.wolfcode.business.manage.utils;
 
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
 
+*/
 /**
  * Created with IntelliJ IDEA.
  *
@@ -19,7 +21,8 @@ import java.util.Properties;
  * Date: 2023/6/12
  * Time: 10:26
  * Description:
- */
+ *//*
+
 @Slf4j
 @Component
 public class EmailUtils {
@@ -30,9 +33,11 @@ public class EmailUtils {
 
     private static String smtp;
 
-    /**
+    */
+/**
      * 发送推送邮件
-     * */
+     * *//*
+
     public static void senPushEmail(Map emailContent, Map org) {
         try {
             Session session = getSession();
@@ -49,9 +54,11 @@ public class EmailUtils {
 
 
 
-    /**
+    */
+/**
      * 发送账户通知邮件
-     * */
+     * *//*
+
     public static void senAccountEmail(String sendTo,String content,String subject) {
         try {
             Session session = getSession();
@@ -114,3 +121,4 @@ public class EmailUtils {
         smtp = smtpmsg;
     }
 }
+*/
