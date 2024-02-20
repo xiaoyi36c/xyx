@@ -1,14 +1,16 @@
 package cn.wolfcode.business.manage.utils;
 
-import com.yr.common.constant.HttpStatus;
-import com.yr.common.core.domain.entity.SysUser;
-import com.yr.common.core.domain.model.LoginUser;
-import com.yr.common.exception.ServiceException;
+
+import cn.wolfcode.common.constant.HttpStatus;
+import cn.wolfcode.common.core.domain.entity.SysUser;
+import cn.wolfcode.common.core.domain.model.LoginUser;
+import cn.wolfcode.common.exception.ServiceException;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.yr.common.utils.SecurityUtils.getAuthentication;
+import static cn.wolfcode.common.utils.SecurityUtils.getAuthentication;
+
 
 /**
  * 当前用户Session工具类

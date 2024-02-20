@@ -1,6 +1,7 @@
 package cn.wolfcode.business.manage.utils;
 
-import com.yr.common.exception.UtilException;
+
+import cn.wolfcode.common.exception.UtilException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
