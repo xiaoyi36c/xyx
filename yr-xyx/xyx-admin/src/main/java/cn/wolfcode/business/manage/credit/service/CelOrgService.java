@@ -6,5 +6,6 @@ import java.util.Map;
 
 public interface CelOrgService {
 
+    // 市级列表
     List<Map> getAreaList(Map params);
 }

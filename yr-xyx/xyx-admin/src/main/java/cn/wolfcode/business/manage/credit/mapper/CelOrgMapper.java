@@ -8,5 +8,9 @@ import java.util.Map;
 @Mapper
 public interface CelOrgMapper {
 
+    // 市级区域树状
     List<Map> getAllArea(Map params);
+
+    // 市级区域列表
+    List<Map> getAreaList(Map params);
 }
