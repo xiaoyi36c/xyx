@@ -1,6 +1,22 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
+      <el-form-item label="创建时间" prop="createdTime">
+        <el-date-picker clearable
+                        v-model="queryParams.createdTime"
+                        type="date"
+                        value-format="yyyy-MM-dd"
+                        placeholder="请选择创建时间">
+        </el-date-picker>
+      </el-form-item>
+      <el-form-item label="机构id" prop="orgId">
+        <el-input
+          v-model="queryParams.orgId"
+          placeholder="请输入机构id"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -40,39 +56,18 @@
           v-hasPermi="['manage:credit:remove']"
         >删除</el-button>
       </el-col>
-      <el-col :span="1.5">
-        <el-button
-          type="warning"
-          plain
-          icon="el-icon-download"
-          size="mini"
-          @click="handleExport"
-          v-hasPermi="['manage:credit:export']"
-        >导出</el-button>
-      </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
     <el-table v-loading="loading" :data="creditList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="${comment}" align="center" prop="id" />
-      <el-table-column label="${comment}" align="center" prop="version" />
-      <el-table-column label="${comment}" align="center" prop="createdBy" />
-      <el-table-column label="${comment}" align="center" prop="createdByName" />
-      <el-table-column label="${comment}" align="center" prop="createdTime" width="180">
+
+      <el-table-column label="机构id" align="center" prop="orgId" />
+      <el-table-column label="创建时间" align="center" prop="createdTime" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createdTime, '{y}-{m}-{d}') }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="${comment}" align="center" prop="updatedBy" />
-      <el-table-column label="${comment}" align="center" prop="updatedByName" />
-      <el-table-column label="${comment}" align="center" prop="updatedTime" width="180">
-        <template slot-scope="scope">
-          <span>{{ parseTime(scope.row.updatedTime, '{y}-{m}-{d}') }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="${comment}" align="center" prop="deleted" />
-      <el-table-column label="机构id" align="center" prop="orgId" />
       <el-table-column label="事件时间" align="center" prop="eventData" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.eventData, '{y}-{m}-{d}') }}</span>
@@ -80,7 +75,6 @@
       </el-table-column>
       <el-table-column label="事件类型" align="center" prop="eventType" />
       <el-table-column label="事件描述" align="center" prop="eventDescribe" />
-      <el-table-column label="来源类型【预留字段，以后会有其他数据来源】" align="center" prop="sourceType" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -150,6 +144,8 @@ export default {
       queryParams: {
         pageNum: 1,
         pageSize: 10,
+        createdTime: null,
+        orgId: null,
       },
       // 表单参数
       form: {},
