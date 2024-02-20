@@ -12,4 +12,10 @@ public interface TPlatScreenOrgListMapper {
     List<Map> getAreaCount(Map params);
 
     List<Map> getOrgLongAndLat(Map params);
+
+    Map getOrgCreditCount(Map params);
+
+    Map getOrgNiceCreditCount(Map params);
+
+    Map getOrgLoseCreditCount(Map params);
 }

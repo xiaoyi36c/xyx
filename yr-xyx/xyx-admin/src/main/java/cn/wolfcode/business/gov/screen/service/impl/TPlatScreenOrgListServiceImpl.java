@@ -6,6 +6,7 @@ import cn.wolfcode.business.manage.utils.MapValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,5 +33,24 @@ public class TPlatScreenOrgListServiceImpl implements TPlatScreenOrgListService 
         }else{
             return tPlatScreenOrgListMapper.getOrgLongAndLat(params);
         }
+    }
+
+    @Override
+    public Map getOrgCreditCount(Map params) {
+        // 参数校验
+        MapValidator.init(params)
+                .key("type").required("type不能为空")
+                .key("regionId").required("编码不能为空")
+                .validate();
+
+        // 返回集合
+        Map finalMap = new HashMap<>();
+
+        // 查询数据
+        finalMap.put("机构数",tPlatScreenOrgListMapper.getOrgCreditCount(params).get("value"));
+        finalMap.put("信用良好机构数", tPlatScreenOrgListMapper.getOrgNiceCreditCount(params).get("value"));
+        finalMap.put("信用异常机构数", tPlatScreenOrgListMapper.getOrgLoseCreditCount(params).get("value"));
+
+        return finalMap;
     }
 }
