@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wolfcode.business.gov.screen.mapper.TPlatScreenOrgListMapper">
+
+    <select id="getAreaCount" parameterType="map" resultType="map">
+        select count(*) as value,count(visitors_flow_rate) as visitors_flow_rate,
+        <if test="type ==0">  a.omit as regionId,</if>
+        <if test="type ==1">  a.city as regionId,</if>
+        b.name  from t_platform_org_list a
+        <if test="type ==0">  left join t_platform_region b on a.omit=b.id  </if>
+        <if test="type ==1"> left join t_platform_region b on a.city=b.id </if>
+        where deleted=0 and longitude is not null and latitude is not null
+        <if test="type ==0"> GROUP BY omit</if>
+        <if test="type ==1"> and omit = #{areaId} GROUP BY city</if>
+    </select>
+
+    <select id="getOrgLongAndLat" parameterType="map" resultType="map">
+        select visitors_flow_rate,credit_score,organization_name,longitude,latitude,business_status from t_platform_org_list where city=#{areaId}
+                                                                                                                               and longitude is not null and latitude is not null
+    </select>
+
+
+</mapper>
