@@ -37,6 +37,17 @@ public class CelOrgCreditController extends BaseController
         return getDataTable(list);
     }
 
+    /**
+     * 根据名字查询机构
+     */
+    @GetMapping("/getOrgByName")
+    public AjaxResult getOrgByName(String name)
+    {
+        List<CelOrgCreditVO> list = celOrgCreditService.getOrgByName(name);
+        return success(list);
+    }
+
+
 
     /**
      * 获取机构异常信息详细信息

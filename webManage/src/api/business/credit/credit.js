@@ -35,6 +35,14 @@ export function updateCredit(data) {
   })
 }
 
+export function selectOrgName(name) {
+    return request({
+        url: '/manage/credit/getOrgByName',
+        method: 'get',
+        data: name
+    })
+}
+
 // 删除机构异常信息
 export function delCredit(id) {
   return request({

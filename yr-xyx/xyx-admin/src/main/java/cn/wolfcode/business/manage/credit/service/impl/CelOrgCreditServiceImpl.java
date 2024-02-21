@@ -91,4 +91,9 @@ public class CelOrgCreditServiceImpl implements ICelOrgCreditService
     {
         return celOrgCreditMapper.deleteCelOrgCreditById(id);
     }
+
+    @Override
+    public List<CelOrgCreditVO> getOrgByName(String name) {
+        return celOrgCreditMapper.getOrgByName(name);
+    }
 }

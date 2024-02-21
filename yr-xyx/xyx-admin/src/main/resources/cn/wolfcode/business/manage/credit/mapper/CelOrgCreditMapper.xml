@@ -76,6 +76,9 @@
         <include refid="selectCelOrgCreditVo"/>
         where id = #{id}
     </select>
+    <select id="getOrgByName" resultType="cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO">
+        select id,organization_name from t_platform_org_list where organization_name = #{organizationName}
+    </select>
 
     <insert id="insertCelOrgCredit" parameterType="CelOrgCredit" useGeneratedKeys="true" keyProperty="id">
         insert into cel_org_credit

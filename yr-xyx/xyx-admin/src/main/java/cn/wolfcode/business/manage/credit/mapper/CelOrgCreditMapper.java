@@ -62,4 +62,6 @@ public interface CelOrgCreditMapper
      * @return 结果
      */
     public int deleteCelOrgCreditByIds(Long[] ids);
+
+    List<CelOrgCreditVO> getOrgByName(String name);
 }

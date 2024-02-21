@@ -60,4 +60,11 @@ public interface ICelOrgCreditService
      * @return 结果
      */
     public int deleteCelOrgCreditById(Long id);
+
+    /**
+     * 根据名字查询机构
+     * @param name
+     * @return
+     */
+    List<CelOrgCreditVO> getOrgByName(String name);
 }
