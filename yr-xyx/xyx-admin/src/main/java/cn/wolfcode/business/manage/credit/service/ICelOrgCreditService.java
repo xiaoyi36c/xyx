@@ -1,6 +1,7 @@
 package cn.wolfcode.business.manage.credit.service;
 
 import cn.wolfcode.business.manage.credit.domain.CelOrgCredit;
+import cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public interface ICelOrgCreditService
      * @param celOrgCredit 机构异常信息
      * @return 机构异常信息集合
      */
-    public List<CelOrgCredit> selectCelOrgCreditList(CelOrgCredit celOrgCredit);
+    public List<CelOrgCreditVO> selectCelOrgCreditList(CelOrgCredit celOrgCredit);
 
     /**
      * 新增机构异常信息

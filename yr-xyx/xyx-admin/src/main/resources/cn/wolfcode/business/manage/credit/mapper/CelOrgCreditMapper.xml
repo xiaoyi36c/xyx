@@ -25,11 +25,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select id, version, created_by, created_by_name, created_time, updated_by, updated_by_name, updated_time, deleted, org_id, event_data, event_type, event_describe, source_type from cel_org_credit
     </sql>
 
-    <select id="selectCelOrgCreditList" parameterType="CelOrgCredit" resultMap="CelOrgCreditResult">
+    <!--<select id="selectCelOrgCreditList" parameterType="CelOrgCredit" resultMap="CelOrgCreditResult">
         <include refid="selectCelOrgCreditVo"/>
         <where>  
         </where>
+    </select>-->
+
+    <resultMap id="CelOrgCreditResultVo" type="CelOrgCreditVo">
+        <result property="id" column="id"/>
+        <result property="version" column="version"/>
+        <result property="createdBy" column="created_by"/>
+        <result property="createdByName" column="created_by_name"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="updatedBy" column="updated_by"/>
+        <result property="updatedByName" column="updated_by_name"/>
+        <result property="updatedTime" column="updated_time"/>
+        <result property="deleted" column="deleted"/>
+        <result property="orgId" column="org_id"/>
+        <result property="eventData" column="event_data"/>
+        <result property="eventType" column="event_type"/>
+        <result property="eventDescribe" column="event_describe"/>
+        <result property="sourceType" column="source_type"/>
+        <result property="organizationName" column="organization_name"/>
+    </resultMap>
+
+    <select id="selectCelOrgCreditList" resultMap="CelOrgCreditResultVo">
+        select cre.*,org.organization_name  from cel_org_credit cre left join t_platform_org_list org on cre.org_id = org.id
     </select>
+
+
     
     <select id="selectCelOrgCreditById" parameterType="Long" resultMap="CelOrgCreditResult">
         <include refid="selectCelOrgCreditVo"/>

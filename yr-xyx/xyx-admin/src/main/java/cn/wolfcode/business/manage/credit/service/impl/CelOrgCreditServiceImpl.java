@@ -1,6 +1,7 @@
 package cn.wolfcode.business.manage.credit.service.impl;
 
 import cn.wolfcode.business.manage.credit.domain.CelOrgCredit;
+import cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO;
 import cn.wolfcode.business.manage.credit.mapper.CelOrgCreditMapper;
 import cn.wolfcode.business.manage.credit.service.ICelOrgCreditService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,12 @@ public class CelOrgCreditServiceImpl implements ICelOrgCreditService
 
     /**
      * 查询机构异常信息列表
-     * 
+     *
      * @param celOrgCredit 机构异常信息
      * @return 机构异常信息
      */
     @Override
-    public List<CelOrgCredit> selectCelOrgCreditList(CelOrgCredit celOrgCredit)
+    public List<CelOrgCreditVO> selectCelOrgCreditList(CelOrgCredit celOrgCredit)
     {
         return celOrgCreditMapper.selectCelOrgCreditList(celOrgCredit);
     }

@@ -62,7 +62,7 @@
     <el-table v-loading="loading" :data="creditList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
 
-      <el-table-column label="机构id" align="center" prop="orgId" />
+      <el-table-column label="机构名字" align="center" prop="organizationName" />
       <el-table-column label="创建时间" align="center" prop="createdTime" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createdTime, '{y}-{m}-{d}') }}</span>

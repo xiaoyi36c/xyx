@@ -1,6 +1,7 @@
 package cn.wolfcode.business.manage.credit.mapper;
 
 import cn.wolfcode.business.manage.credit.domain.CelOrgCredit;
+import cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public interface CelOrgCreditMapper
      * @param celOrgCredit 机构异常信息
      * @return 机构异常信息集合
      */
-    public List<CelOrgCredit> selectCelOrgCreditList(CelOrgCredit celOrgCredit);
+    public List<CelOrgCreditVO> selectCelOrgCreditList(CelOrgCredit celOrgCredit);
 
     /**
      * 新增机构异常信息
