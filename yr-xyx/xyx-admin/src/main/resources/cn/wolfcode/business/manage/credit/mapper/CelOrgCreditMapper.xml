@@ -84,7 +84,7 @@
     </resultMap>
 
     <select id="getOrgByName" parameterType="String" resultMap="TPlatformOrgResult">
-        select id,organization_name from t_platform_org_list where organization_name like concat('%',#{organizationName},'%')
+        select id,organization_name from t_platform_org_list
     </select>
 
     <insert id="insertCelOrgCredit" parameterType="CelOrgCredit" useGeneratedKeys="true" keyProperty="id">
