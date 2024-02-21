@@ -78,7 +78,7 @@
         where id = #{id}
     </select>
 
-    <resultMap id="TPlatformOrgResult" type="cn.wolfcode.business.manage.credit.domain.TPlatformOrg">
+    <resultMap id="TPlatformOrgResult" type="cn.wolfcode.business.manage.credit.domain.vo.TPlatformOrgVo">
         <result property="id" column="id"/>
         <result property="organizationName" column="organization_name"/>
     </resultMap>

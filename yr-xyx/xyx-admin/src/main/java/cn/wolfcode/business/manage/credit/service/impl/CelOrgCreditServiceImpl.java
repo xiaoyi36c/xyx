@@ -1,8 +1,8 @@
 package cn.wolfcode.business.manage.credit.service.impl;
 
 import cn.wolfcode.business.manage.credit.domain.CelOrgCredit;
-import cn.wolfcode.business.manage.credit.domain.TPlatformOrg;
 import cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO;
+import cn.wolfcode.business.manage.credit.domain.vo.TPlatformOrgVo;
 import cn.wolfcode.business.manage.credit.mapper.CelOrgCreditMapper;
 import cn.wolfcode.business.manage.credit.service.ICelOrgCreditService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,7 +94,7 @@ public class CelOrgCreditServiceImpl implements ICelOrgCreditService
     }
 
     @Override
-    public List<TPlatformOrg> getOrgByName(String name) {
+    public List<TPlatformOrgVo> getOrgByName(String name) {
         return celOrgCreditMapper.getOrgByName(name);
     }
 }

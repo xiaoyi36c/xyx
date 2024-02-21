@@ -1,8 +1,8 @@
 package cn.wolfcode.business.manage.credit.controller;
 
 import cn.wolfcode.business.manage.credit.domain.CelOrgCredit;
-import cn.wolfcode.business.manage.credit.domain.TPlatformOrg;
 import cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO;
+import cn.wolfcode.business.manage.credit.domain.vo.TPlatformOrgVo;
 import cn.wolfcode.business.manage.credit.service.ICelOrgCreditService;
 import cn.wolfcode.common.annotation.Log;
 import cn.wolfcode.common.core.controller.BaseController;
@@ -44,7 +44,7 @@ public class CelOrgCreditController extends BaseController
     @GetMapping("/getOrgByName")
     public AjaxResult getOrgByName(String organizationName)
     {
-        List<TPlatformOrg> list = celOrgCreditService.getOrgByName(organizationName);
+        List<TPlatformOrgVo> list = celOrgCreditService.getOrgByName(organizationName);
         return success(list);
     }
 
