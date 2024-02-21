@@ -1,6 +1,5 @@
 package cn.wolfcode.business.manage.credit.domain.vo;
 
-import cn.wolfcode.common.core.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TPlatformOrgVo extends BaseEntity
+public class TPlatformOrgVo
 {
 
     private Long id;
