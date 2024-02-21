@@ -76,7 +76,8 @@
         <include refid="selectCelOrgCreditVo"/>
         where id = #{id}
     </select>
-    <select id="getOrgByName" resultType="cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO">
+
+    <select id="getOrgByName" resultType="cn.wolfcode.business.manage.credit.domain.TPlatformOrg">
         select id,organization_name from t_platform_org_list where organization_name = #{organizationName}
     </select>
 
