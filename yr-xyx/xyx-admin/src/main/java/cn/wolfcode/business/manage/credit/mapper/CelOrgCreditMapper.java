@@ -1,6 +1,7 @@
 package cn.wolfcode.business.manage.credit.mapper;
 
 import cn.wolfcode.business.manage.credit.domain.CelOrgCredit;
+import cn.wolfcode.business.manage.credit.domain.TPlatformOrg;
 import cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -63,5 +64,5 @@ public interface CelOrgCreditMapper
      */
     public int deleteCelOrgCreditByIds(Long[] ids);
 
-    List<CelOrgCreditVO> getOrgByName(String name);
+    List<TPlatformOrg> getOrgByName(String name);
 }

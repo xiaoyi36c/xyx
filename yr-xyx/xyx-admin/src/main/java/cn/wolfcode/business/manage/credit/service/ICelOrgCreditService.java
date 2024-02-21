@@ -1,6 +1,7 @@
 package cn.wolfcode.business.manage.credit.service;
 
 import cn.wolfcode.business.manage.credit.domain.CelOrgCredit;
+import cn.wolfcode.business.manage.credit.domain.TPlatformOrg;
 import cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO;
 
 import java.util.List;
@@ -63,8 +64,9 @@ public interface ICelOrgCreditService
 
     /**
      * 根据名字查询机构
+     *
      * @param name
      * @return
      */
-    List<CelOrgCreditVO> getOrgByName(String name);
+    List<TPlatformOrg> getOrgByName(String name);
 }

@@ -112,7 +112,9 @@
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="机构名字" prop="organizationName">
-          <el-input v-model="form.organizationName" clearable placeholder="请输入机构名字" :change="selectorganizationName"/>
+          <el-autocomplete class="inline-input" v-model="form.organizationName"
+                           :fetch-suggestions="querySearch" placeholder="请输入机构名字"
+                           :trigger-on-focus="false"/>
         </el-form-item>
         <el-form-item label="事件时间" prop="eventData">
           <el-date-picker
@@ -131,8 +133,9 @@
             <el-option label="官司纠纷" value="官司纠纷"/>
           </el-select>
         </el-form-item>
-        <el-form-item  label="事件描述" prop="eventDescribe">
-          <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" v-model="form.eventDescribe" clearable placeholder="请输入事件描述"/>
+        <el-form-item label="事件描述" prop="eventDescribe">
+          <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" v-model="form.eventDescribe" clearable
+                    placeholder="请输入事件描述"/>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -253,10 +256,11 @@ export default {
         this.title = "修改机构异常信息";
       });
     },
-    selectOrganizationName() {
-      selectOrgName(this.form.organizationName).then(response => {
-        this.form.orgId = response.id;
-      })
+    querySearch(queryString, cb) {
+      console.log(queryString+"---");
+      selectOrgName(queryString).then(response => {
+        cb(response.data);
+      });
     },
     /** 提交按钮 */
     submitForm() {
@@ -295,6 +299,6 @@ export default {
         ...this.queryParams
       }, `credit_${new Date().getTime()}.xlsx`)
     }
-  }
+  },
 };
 </script>

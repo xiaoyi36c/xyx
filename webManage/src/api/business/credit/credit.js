@@ -35,11 +35,10 @@ export function updateCredit(data) {
   })
 }
 
-export function selectOrgName(name) {
+export function selectOrgName(organizationName) {
     return request({
-        url: '/manage/credit/getOrgByName',
+        url: `/manage/credit/getOrgByName?organizationName=${organizationName}`,
         method: 'get',
-        data: name
     })
 }
 

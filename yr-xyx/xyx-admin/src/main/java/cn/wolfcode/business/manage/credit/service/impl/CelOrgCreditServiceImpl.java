@@ -1,6 +1,7 @@
 package cn.wolfcode.business.manage.credit.service.impl;
 
 import cn.wolfcode.business.manage.credit.domain.CelOrgCredit;
+import cn.wolfcode.business.manage.credit.domain.TPlatformOrg;
 import cn.wolfcode.business.manage.credit.domain.vo.CelOrgCreditVO;
 import cn.wolfcode.business.manage.credit.mapper.CelOrgCreditMapper;
 import cn.wolfcode.business.manage.credit.service.ICelOrgCreditService;
@@ -93,7 +94,7 @@ public class CelOrgCreditServiceImpl implements ICelOrgCreditService
     }
 
     @Override
-    public List<CelOrgCreditVO> getOrgByName(String name) {
+    public List<TPlatformOrg> getOrgByName(String name) {
         return celOrgCreditMapper.getOrgByName(name);
     }
 }
