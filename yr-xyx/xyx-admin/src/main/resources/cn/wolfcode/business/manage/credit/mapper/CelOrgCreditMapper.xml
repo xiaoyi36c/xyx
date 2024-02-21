@@ -72,12 +72,18 @@
     </select>
 
 
+
     <select id="selectCelOrgCreditById" parameterType="Long" resultMap="CelOrgCreditResult">
         <include refid="selectCelOrgCreditVo"/>
         where id = #{id}
     </select>
 
-    <select id="getOrgByName" resultType="cn.wolfcode.business.manage.credit.domain.TPlatformOrg">
+    <resultMap id="TPlatformOrgResult" type="cn.wolfcode.business.manage.credit.domain.TPlatformOrg">
+        <result property="id" column="id"/>
+        <result property="organizationName" column="organization_name"/>
+    </resultMap>
+
+    <select id="getOrgByName" parameterType="String" resultMap="TPlatformOrgResult">
         select id,organization_name from t_platform_org_list where organization_name like concat('%',#{organizationName},'%')
     </select>
 
