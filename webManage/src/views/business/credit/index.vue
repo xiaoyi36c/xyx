@@ -195,8 +195,14 @@ export default {
   },
   created() {
     this.getList();
+    this.getName()
   },
   methods: {
+    getName(){
+      selectOrgName().then(response => {
+        this.restaurants = response.data;
+      });
+    },
     /** 查询机构异常信息列表 */
     getList() {
       this.loading = true;
@@ -266,9 +272,6 @@ export default {
     },
     querySearch(queryString, cb) {
       console.log(queryString+"---");
-      selectOrgName(queryString).then(response => {
-        this.restaurants = response.data;
-      });
       let restaurants = this.restaurants;
       let results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
       // 调用 callback 返回建议列表的数据
