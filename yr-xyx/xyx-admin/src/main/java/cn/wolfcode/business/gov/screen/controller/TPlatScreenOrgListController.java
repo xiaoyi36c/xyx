@@ -29,10 +29,19 @@ public class TPlatScreenOrgListController {
     }
 
 
+    /* 政府大屏获取机构区域地图 */
     @Log(title = "机构地图 ", businessType = BusinessType.OTHER)
     @GetMapping("/getAllOrgMap")
     public AjaxResult getAllOrgMap(@RequestParam Map params){
         return AjaxResult.success(tPlatScreenOrgListService.getAllOrgMap(params));
+    }
+
+
+    /* 政府大屏累计数据 */
+    @Log(title = "获取累计数 ", businessType = BusinessType.OTHER)
+    @GetMapping("/getOrgCreditCount")
+    public AjaxResult getOrgCreditCount(@RequestParam Map params){
+        return AjaxResult.success(tPlatScreenOrgListService.getOrgCreditCount(params));
     }
 
 }

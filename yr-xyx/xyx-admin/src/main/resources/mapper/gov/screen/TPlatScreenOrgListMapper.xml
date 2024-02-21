@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.wolfcode.business.gov.screen.mapper.TPlatScreenOrgListMapper">
 
+    <sql id="omitAndCityV2">
+        <if test="type != null and type==1"> and omit = #{regionId} </if>
+        <if test="type != null and type==2"> and city = #{regionId}</if>
+    </sql>
+
     <select id="getAreaCount" parameterType="map" resultType="map">
         select count(*) as value,count(visitors_flow_rate) as visitors_flow_rate,
         <if test="type ==0">  a.omit as regionId,</if>
@@ -15,8 +20,22 @@
     </select>
 
     <select id="getOrgLongAndLat" parameterType="map" resultType="map">
-        select visitors_flow_rate,credit_score,organization_name,longitude,latitude,business_status from t_platform_org_list where city=#{areaId}
-                                                                                                                               and longitude is not null and latitude is not null
+        select visitors_flow_rate,credit_score,organization_name,longitude,latitude,business_status
+        from t_platform_org_list
+        where city=#{areaId}                                                                                                                    and longitude is not null and latitude is not null
+    </select>
+
+
+    <select id="getOrgCreditCount" parameterType="map" resultType="map">
+        select count(*) as value from t_platform_org_list where deleted=0 <include refid="omitAndCityV2"/>
+    </select>
+
+    <select id="getOrgNiceCreditCount" parameterType="map" resultType="map">
+        select count(*) as value from t_platform_org_list where deleted=0 and credit_status=1 <include refid="omitAndCityV2"/>
+    </select>
+
+    <select id="getOrgLoseCreditCount" parameterType="map" resultType="map">
+        select count(*) as value from t_platform_org_list where deleted=0 and credit_status=3 <include refid="omitAndCityV2"/>
     </select>
 
 
