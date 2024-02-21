@@ -9,10 +9,10 @@
                         placeholder="请选择创建时间">
         </el-date-picker>
       </el-form-item>
-      <el-form-item label="机构id" prop="orgId">
+      <el-form-item label="机构名字" prop="organizationName">
         <el-input
-          v-model="queryParams.orgId"
-          placeholder="请输入机构id"
+          v-model="queryParams.params.organizationName"
+          placeholder="请输入机构名字"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -145,7 +145,9 @@ export default {
         pageNum: 1,
         pageSize: 10,
         createdTime: null,
-        orgId: null,
+        params: {
+          organizationName: null,
+        }
       },
       // 表单参数
       form: {},

@@ -1,35 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.wolfcode.business.manage.credit.mapper.CelOrgCreditMapper">
-    
+
     <resultMap type="CelOrgCredit" id="CelOrgCreditResult">
-        <result property="id"    column="id"    />
-        <result property="version"    column="version"    />
-        <result property="createdBy"    column="created_by"    />
-        <result property="createdByName"    column="created_by_name"    />
-        <result property="createdTime"    column="created_time"    />
-        <result property="updatedBy"    column="updated_by"    />
-        <result property="updatedByName"    column="updated_by_name"    />
-        <result property="updatedTime"    column="updated_time"    />
-        <result property="deleted"    column="deleted"    />
-        <result property="orgId"    column="org_id"    />
-        <result property="eventData"    column="event_data"    />
-        <result property="eventType"    column="event_type"    />
-        <result property="eventDescribe"    column="event_describe"    />
-        <result property="sourceType"    column="source_type"    />
+        <result property="id" column="id"/>
+        <result property="version" column="version"/>
+        <result property="createdBy" column="created_by"/>
+        <result property="createdByName" column="created_by_name"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="updatedBy" column="updated_by"/>
+        <result property="updatedByName" column="updated_by_name"/>
+        <result property="updatedTime" column="updated_time"/>
+        <result property="deleted" column="deleted"/>
+        <result property="orgId" column="org_id"/>
+        <result property="eventData" column="event_data"/>
+        <result property="eventType" column="event_type"/>
+        <result property="eventDescribe" column="event_describe"/>
+        <result property="sourceType" column="source_type"/>
     </resultMap>
 
     <sql id="selectCelOrgCreditVo">
-        select id, version, created_by, created_by_name, created_time, updated_by, updated_by_name, updated_time, deleted, org_id, event_data, event_type, event_describe, source_type from cel_org_credit
+        select id,
+               version,
+               created_by,
+               created_by_name,
+               created_time,
+               updated_by,
+               updated_by_name,
+               updated_time,
+               deleted,
+               org_id,
+               event_data,
+               event_type,
+               event_describe,
+               source_type
+        from cel_org_credit
     </sql>
 
-    <!--<select id="selectCelOrgCreditList" parameterType="CelOrgCredit" resultMap="CelOrgCreditResult">
-        <include refid="selectCelOrgCreditVo"/>
-        <where>  
-        </where>
-    </select>-->
 
     <resultMap id="CelOrgCreditResultVo" type="CelOrgCreditVo">
         <result property="id" column="id"/>
@@ -48,18 +57,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="sourceType" column="source_type"/>
         <result property="organizationName" column="organization_name"/>
     </resultMap>
-
     <select id="selectCelOrgCreditList" resultMap="CelOrgCreditResultVo">
-        select cre.*,org.organization_name  from cel_org_credit cre left join t_platform_org_list org on cre.org_id = org.id
+        select cre.*, org.organization_name
+        from cel_org_credit cre
+                 left join t_platform_org_list org on cre.org_id = org.id
+        <where>
+        <if test="params.organizationName != null and params.organizationName != ''">
+            and org.organization_name like concat('%',  #{params.organizationName}, '%')
+        </if>
+        <if test="createdTime != null">
+            and cre.created_time &gt;=  #{createdTime}
+        </if>
+        </where>
     </select>
 
 
-    
     <select id="selectCelOrgCreditById" parameterType="Long" resultMap="CelOrgCreditResult">
         <include refid="selectCelOrgCreditVo"/>
         where id = #{id}
     </select>
-        
+
     <insert id="insertCelOrgCredit" parameterType="CelOrgCredit" useGeneratedKeys="true" keyProperty="id">
         insert into cel_org_credit
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -76,7 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="eventType != null">event_type,</if>
             <if test="eventDescribe != null">event_describe,</if>
             <if test="sourceType != null">source_type,</if>
-         </trim>
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="version != null">#{version},</if>
             <if test="createdBy != null">#{createdBy},</if>
@@ -91,7 +108,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="eventType != null">#{eventType},</if>
             <if test="eventDescribe != null">#{eventDescribe},</if>
             <if test="sourceType != null">#{sourceType},</if>
-         </trim>
+        </trim>
     </insert>
 
     <update id="updateCelOrgCredit" parameterType="CelOrgCredit">
@@ -115,11 +132,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </update>
 
     <delete id="deleteCelOrgCreditById" parameterType="Long">
-        delete from cel_org_credit where id = #{id}
+        delete
+        from cel_org_credit
+        where id = #{id}
     </delete>
 
     <delete id="deleteCelOrgCreditByIds" parameterType="String">
-        delete from cel_org_credit where id in 
+        delete from cel_org_credit where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>
