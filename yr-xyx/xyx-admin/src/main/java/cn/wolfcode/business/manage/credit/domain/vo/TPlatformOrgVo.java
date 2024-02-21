@@ -18,7 +18,6 @@ import lombok.Setter;
 public class TPlatformOrgVo
 {
 
+    private String value;
     private Long id;
-
-    private String organizationName;
 }

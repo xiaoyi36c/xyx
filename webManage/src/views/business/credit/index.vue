@@ -112,9 +112,14 @@
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="机构名字" prop="organizationName">
-          <el-autocomplete class="inline-input" v-model="form.organizationName"
-                           :fetch-suggestions="querySearch" placeholder="请输入机构名字"
-                           :trigger-on-focus="false"/>
+          <el-autocomplete
+            class="inline-input"
+            v-model="form.organizationName"
+            :fetch-suggestions="querySearch"
+            placeholder="请输入机构名字"
+            :trigger-on-focus="false"
+            @select="handleSelect"
+          ></el-autocomplete>
         </el-form-item>
         <el-form-item label="事件时间" prop="eventData">
           <el-date-picker
@@ -153,6 +158,8 @@ export default {
   name: "Credit",
   data() {
     return {
+      re:[],
+      restaurants: [],
       // 遮罩层
       loading: true,
       // 选中数组
@@ -207,6 +214,7 @@ export default {
     // 表单重置
     reset() {
       this.form = {
+        restaurants: [],
         id: null,
         version: null,
         createdBy: null,
@@ -259,8 +267,17 @@ export default {
     querySearch(queryString, cb) {
       console.log(queryString+"---");
       selectOrgName(queryString).then(response => {
-        cb(response.data);
+        this.restaurants = response.data;
       });
+      let restaurants = this.restaurants;
+      let results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+      // 调用 callback 返回建议列表的数据
+      cb(results);
+    },
+    createFilter(queryString) {
+      return (restaurant) => {
+        return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+      };
     },
     /** 提交按钮 */
     submitForm() {
@@ -300,5 +317,6 @@ export default {
       }, `credit_${new Date().getTime()}.xlsx`)
     }
   },
+
 };
 </script>

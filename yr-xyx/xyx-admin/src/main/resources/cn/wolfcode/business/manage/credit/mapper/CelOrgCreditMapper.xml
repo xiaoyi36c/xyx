@@ -80,7 +80,7 @@
 
     <resultMap id="TPlatformOrgResult" type="cn.wolfcode.business.manage.credit.domain.vo.TPlatformOrgVo">
         <result property="id" column="id"/>
-        <result property="organizationName" column="organization_name"/>
+        <result property="value" column="organization_name"/>
     </resultMap>
 
     <select id="getOrgByName" parameterType="String" resultMap="TPlatformOrgResult">
